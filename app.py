@@ -2,7 +2,8 @@
 import streamlit as st
 from wikipedia_game_player import wikipedia_game_player
 import time
-        
+
+@st.cache_data(ttl=3600, show_spinner=False)
 def formatPath(path):
     """
     Formats the path for display in Streamlit.
