@@ -1,8 +1,7 @@
 # app.py
 import streamlit as st
-from wikipedia_game_player import run_game_generator
+from wikipedia_game_player import wikipedia_game_player
 import time
-
         
 def formatPath(path):
     """
@@ -42,7 +41,7 @@ if st.button("Start Game 🚀"):
     current_path_list = []
 
     # Run the game generator and update the UI dynamically
-    for status_message, current_path_update in run_game_generator(start_input, target_input, max_depth_val, max_articles_val):
+    for status_message, current_path_update in wikipedia_game_player(start_input, target_input, max_depth_val, max_articles_val):
         status_placeholder.info(status_message)
         current_path_list = current_path_update 
         

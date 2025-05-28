@@ -1,8 +1,8 @@
-# run_game_generator.py
+#wikipedia_game_player.py
 from collections import deque
 from wikipedia_api import get_links_from_article, article_exists, normalize_title
 
-def run_game_generator(start_article, end_article, max_depth, max_articles_to_check):
+def wikipedia_game_player(start_article, end_article, max_depth, max_articles_to_check):
     """
     Generator function to play the Wikipedia game. It yields status updates
     and the current path as it explores the Wikipedia graph.

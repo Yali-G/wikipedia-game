@@ -1,3 +1,4 @@
+#wikipedia_api.py
 import requests
 
 # Base URL for the Wikipedia API
