@@ -1,6 +1,12 @@
 #wikipedia_game_player.py
 from collections import deque
 from wikipedia_api import get_links_from_article, article_exists, normalize_title
+import re
+
+
+
+def strip_parentheses(text):
+    return re.sub(r"_\(.*?\)", "", text).strip()
 
 def wikipedia_game_player(start_article, end_article, max_depth, max_articles_to_check):
     """
@@ -72,7 +78,7 @@ def wikipedia_game_player(start_article, end_article, max_depth, max_articles_to
 
             # Check if the destination article is found
             # If found then yield the path and exit
-            if normalized_link.lower() == end_article_norm.lower():
+            if strip_parentheses(normalized_link.lower()) == end_article_norm.lower():
                 final_path = path + [end_article_norm]
                 yield f"Path found! Reached '{end_article.replace('_', ' ')}' in {len(final_path)-1} steps!", final_path
                 return
